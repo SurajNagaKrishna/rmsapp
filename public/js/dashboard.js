@@ -93,8 +93,6 @@ async function addItem() {
 
 // ================= DELETE =================
 async function deleteItem(index) {
-    if (!confirm("Delete this item?")) return;
-
     try {
         const res = await apiFetch(`/menu/${index}`, { method: "DELETE" });
         if (res.ok) {

@@ -188,7 +188,11 @@ async function confirmOrder() {
                     <thead><tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Subtotal</th></tr></thead>
                     <tbody>${bill.items.map(item=>`<tr><td>${item.name}</td><td>${item.qty}</td><td>₹${item.price}</td><td>₹${item.price*item.qty}</td></tr>`).join("")}</tbody>
                 </table>
-                <div class="ba">Total: ₹${bill.amount}</div>
+                <div style="margin-bottom:20px;border-top:1px solid rgba(255,255,255,0.2);padding-top:15px;">
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Subtotal:</span><span>₹${(bill.amount * 100 / 118).toFixed(2)}</span></div>
+                    <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span>Tax (18% GST):</span><span>₹${(bill.amount - (bill.amount * 100 / 118)).toFixed(2)}</span></div>
+                    <div class="ba" style="margin-bottom:0;">Total: ₹${bill.amount}</div>
+                </div>
                 <div class="bacts">
                     <button class="bb" onclick="location.href='order.html'">← New Order</button>
                     <button class="bp" onclick="window.print()">🖨 Print</button>
