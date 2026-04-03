@@ -194,8 +194,6 @@ async function updateUser(id) {
 
 // ================= DELETE USER =================
 async function deleteUser(id, uname) {
-    if (!confirm(`Delete user "${uname}"? This cannot be undone.`)) return;
-
     try {
         const res  = await apiFetch(`/users/${id}`, { method: "DELETE" });
         const data = await res.json();
