@@ -170,7 +170,7 @@ async function confirmOrder() {
                 body{background:linear-gradient(135deg,#141e30,#243b55);min-height:100vh;padding:40px 20px;color:white;font-family:'Poppins',sans-serif;margin:0;}
                 .bw{max-width:600px;margin:auto;}
                 .bw h1{text-align:center;font-size:2rem;margin-bottom:6px;}
-                .bw .sub{text-align:center;opacity:0.6;margin-bottom:30px;}
+                .bw .sub{text-align:center;opacity:0.6;margin-bottom:10px;}
                 .bt{width:100%;border-collapse:collapse;margin-bottom:20px;}
                 .bt th,.bt td{border:1px solid rgba(255,255,255,0.2);padding:12px;text-align:center;}
                 .bt th{background:rgba(255,255,255,0.1);}
@@ -184,6 +184,7 @@ async function confirmOrder() {
             <div class="bw">
                 <h1>🧾 Your Bill</h1>
                 <p class="sub">Order #${res.id}</p>
+                <p style="text-align:center;opacity:0.5;font-size:13px;margin-bottom:30px;">📅 ${new Date().toLocaleString()}</p>
                 <table class="bt">
                     <thead><tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Subtotal</th></tr></thead>
                     <tbody>${bill.items.map(item=>`<tr><td>${item.name}</td><td>${item.qty}</td><td>₹${item.price}</td><td>₹${item.price*item.qty}</td></tr>`).join("")}</tbody>
